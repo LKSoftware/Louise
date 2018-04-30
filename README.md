@@ -2,10 +2,15 @@
 Luoise is a fast lightweight Interface between configurations of applications.
 
 L -
+<br>
 U -
+<br>
 O -
+<br>
 I -
+<br>
 S - SimpleProperties
+<br>
 E -
 
 SimpleProperties
