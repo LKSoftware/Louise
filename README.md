@@ -9,11 +9,11 @@ O  -
 <br>
 I  -
 <br>
-S  - SimpleProperties
+S  - #SimpleProperties
 <br>
 E  -
 
-SimpleProperties
+#SimpleProperties
 This tool should can
 - Convert SimpleProperties.Properties(JSON) to Java.Util.Properties(Java textbased Properties) and back.
 - You can diff a Properties to check what changed.
@@ -21,7 +21,7 @@ This tool should can
 - Schemas.
 - Add comments to Settings while writing config from your Application.
 
-- FAST FAST SUPER FAST.
+- FAST FASTER SUPER FAST.
 - Encrypt Decrypt Settings (why the fuck do you need this).
 
 
