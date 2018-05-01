@@ -25,7 +25,7 @@ public class JProperties
    *
    * @param configName The name of the config.
    * @param file       The .properties file.
-   * @throws IOException
+   * @throws IOException if file not found.
    */
   public JProperties(String configName, File file) throws IOException
   {
@@ -39,7 +39,7 @@ public class JProperties
    *
    * @param configName The name of the config.
    * @param stream     direct input stream containing {@link java.util.Properties}.
-   * @throws IOException
+   * @throws IOException if file not found.
    */
   public JProperties(String configName, InputStream stream) throws IOException
   {
@@ -53,7 +53,7 @@ public class JProperties
    *
    * @return A Map
    */
-  private Map<String, Object> getPropertiesMap()
+  Map<String, Object> getPropertiesMap()
   {
     Map<String, Object> map = new HashMap<>();
     if (properties != null)
