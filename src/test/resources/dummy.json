@@ -1,0 +1,7 @@
+{
+  "properties": {
+    "key1": "testvalue",
+    "key2": 200
+  },
+  "name": "TestConfig"
+}

@@ -1,5 +1,7 @@
 package SimpleProperties.Json;
 
+import com.google.gson.Gson;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -69,6 +71,12 @@ public class PropertiesStructure
   public void setProperties(Map<String, Object> properties)
   {
     this.properties = properties instanceof HashMap ? properties : new HashMap<>(properties);
+  }
+
+  @Override
+  public String toString()
+  {
+    return new Gson().toJson(this, PropertiesStructure.class);
   }
 }
 
