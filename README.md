@@ -1,5 +1,5 @@
 ----------------------------------
-Luoise is a fast lightweight Interface between configurations of applications.
+Luoise is a fast lightweight Interface for the configuration of applications.
 
 L  -
 <br>
