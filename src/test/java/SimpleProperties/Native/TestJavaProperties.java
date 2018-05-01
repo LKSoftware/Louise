@@ -1,14 +1,11 @@
 package SimpleProperties.Native;
 
 import SimpleProperties.Json.PropertiesStructure;
-import org.hamcrest.Matchers;
 import org.hamcrest.collection.IsMapContaining;
 import org.hamcrest.core.Is;
-import org.junit.Assert;
 import org.junit.Test;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Map;
 
@@ -16,7 +13,12 @@ import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
 
-public class TestJProperties
+/**
+ * Unit Test for {@link JavaProperties}.
+ *
+ * @author leonk
+ */
+public class TestJavaProperties
 {
 
   private static final String TESTNAME = "testconfig";
@@ -24,7 +26,7 @@ public class TestJProperties
   @Test
   public void canReadProperties() throws IOException
   {
-    JProperties systemUnderTest = new JProperties(TESTNAME, getTestProperties());
+    JavaProperties systemUnderTest = new JavaProperties(TESTNAME, getTestProperties());
 
     Map<String, Object> test = systemUnderTest.getPropertiesMap();
 
@@ -35,9 +37,9 @@ public class TestJProperties
   @Test
   public void canProducePropertiesStructure() throws IOException
   {
-    JProperties systemUnderTest = new JProperties(TESTNAME, getTestProperties());
+    JavaProperties systemUnderTest = new JavaProperties(TESTNAME, getTestProperties());
 
-    PropertiesStructure ps = systemUnderTest.toJsonProperties();
+    PropertiesStructure ps = systemUnderTest.toPropertiesStructure();
 
     assertThat("smoke name", ps.getName(), Is.is(TESTNAME));
     assertThat("smoke entry", ps.getProperties(), IsMapContaining.hasEntry("key2", "200"));
@@ -47,6 +49,6 @@ public class TestJProperties
 
   private File getTestProperties()
   {
-    return new File(TestJProperties.class.getResource("../../dummy.properties").getFile());
+    return new File(TestJavaProperties.class.getResource("../../dummy.properties").getFile());
   }
 }

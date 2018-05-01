@@ -1,5 +1,10 @@
 package SimpleProperties;
 
+/**
+ * Properties Converter can convert both back and forth(JSON - properties)
+ *
+ * @author leonk
+ */
 public class Converter
 {
 
