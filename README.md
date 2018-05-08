@@ -20,6 +20,7 @@ This tool should can
 - Can easily load and store Properties as JSON or as .properties.
 - Schemas.
 - Add comments to Settings while writing config from your Application.
+- Multiple configs in one json config.
 
 - FAST FASTER SUPER FAST.
 - Encrypt Decrypt Settings (why the fuck do you need this).
