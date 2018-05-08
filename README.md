@@ -1,11 +1,11 @@
 ----------------------------------
-Luoise is a fast lightweight Interface for the configuration of applications.
+Louise is a fast lightweight Interface for the configuration of applications.
 
 L  -
 <br>
-U  -
-<br>
 O  -
+<br>
+U  -
 <br>
 I  -
 <br>
