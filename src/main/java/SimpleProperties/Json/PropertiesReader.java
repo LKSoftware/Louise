@@ -53,7 +53,7 @@ public class PropertiesReader
    *
    * @return a Map
    */
-  public Map<String, Object> getProperties()
+  public Map<Object, Object> getProperties()
   {
     return propertiesStructure.getProperties();
   }

@@ -1,7 +1,7 @@
 package SimpleProperties;
 
 /**
- * Class for loading and storing properties somewhere safe.
+ * Helper class for loading and storing properties somewhere safe.
  *
  * @author leonk
  */

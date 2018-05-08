@@ -18,7 +18,7 @@ public class PropertiesStructure
    * All properties containing Key and Value.
    * HashMap usefull at this point to avoid double keys.
    */
-  private Map<String, Object> properties = new HashMap<>();
+  private Map<Object, Object> properties = new HashMap<>();
 
   /**
    * The name of the {@link PropertiesStructure}.
@@ -56,9 +56,9 @@ public class PropertiesStructure
   /**
    * Returns the properties of a {@link PropertiesStructure}.
    *
-   * @return as HashMap<String, Object>
+   * @return as HashMap<Object, Object>
    */
-  public Map<String, Object> getProperties()
+  public Map<Object, Object> getProperties()
   {
     return properties;
   }
@@ -66,9 +66,9 @@ public class PropertiesStructure
   /**
    * Sets the PropertiesStructure for the {@link PropertiesStructure}
    *
-   * @param properties as Map<String, Object>
+   * @param properties as Map<Object, Object>
    */
-  public void setProperties(Map<String, Object> properties)
+  public void setProperties(Map<Object, Object> properties)
   {
     this.properties = properties instanceof HashMap ? properties : new HashMap<>(properties);
   }

@@ -26,24 +26,13 @@ public class TestJavaProperties
   @Test
   public void canReadProperties() throws IOException
   {
-    JavaProperties systemUnderTest = new JavaProperties(TESTNAME, getTestProperties());
+    JavaProperties systemUnderTest = new JavaProperties(TESTNAME);
+    systemUnderTest.load(getTestProperties());
 
-    Map<String, Object> test = systemUnderTest.getPropertiesMap();
+    Map<Object, Object> test = systemUnderTest.getPropertiesMap();
 
     assertTrue("entries", test.size() == 2);
     assertThat("entry", test, IsMapContaining.hasEntry("key2", "200"));
-  }
-
-  @Test
-  public void canProducePropertiesStructure() throws IOException
-  {
-    JavaProperties systemUnderTest = new JavaProperties(TESTNAME, getTestProperties());
-
-    PropertiesStructure ps = systemUnderTest.toPropertiesStructure();
-
-    assertThat("smoke name", ps.getName(), Is.is(TESTNAME));
-    assertThat("smoke entry", ps.getProperties(), IsMapContaining.hasEntry("key2", "200"));
-
   }
 
 

@@ -1,61 +1,71 @@
 package SimpleProperties.Native;
 
-import SimpleProperties.Json.PropertiesFactory;
-import SimpleProperties.Json.PropertiesStructure;
-
 import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Properties;
 
 
 /**
- * JavaProperties represents the native {@link java.util.Properties} and uses it to extract properties from it.
+ * Represents the native {@link Properties} and uses it to extract properties from it.
  *
  * @author leonk
  */
 public class JavaProperties
 {
 
-  private final java.util.Properties properties;
+  private Properties properties;
 
   private final String configName;
 
   /**
-   * Creates a new {@link JavaProperties} and loads a property from file.
+   * Creates a new {@link JavaProperties} with a given configName.
    *
    * @param configName The name of the config.
-   * @param file       The .properties file.
    * @throws IOException if file not found.
    */
-  public JavaProperties(String configName, File file) throws IOException
+  public JavaProperties(String configName)
   {
     this.configName = configName;
-    properties = new java.util.Properties();
+  }
+
+  /**
+   * Loads a properties from File.
+   *
+   * @param file       The .properties file.
+   * @throws IOException
+   */
+  public void load(File file) throws IOException
+  {
+    properties = new Properties();
     properties.load(new FileInputStream(file));
   }
 
   /**
-   * Creates a new {@link JavaProperties} and loads a property from stream.
+   * Loads a properties from InputStream.
    *
-   * @param configName The name of the config.
-   * @param stream     direct input stream containing {@link java.util.Properties}.
-   * @throws IOException if file not found.
+   * @param stream     direct input stream containing {@link Properties}.
+   * @throws IOException
    */
-  public JavaProperties(String configName, InputStream stream) throws IOException
+  public void load(InputStream stream) throws IOException
   {
-    this.configName = configName;
-    properties = new java.util.Properties();
+    properties = new Properties();
     properties.load(stream);
   }
 
-  /**
-   * Generates a map containing Properties from {@link java.util.Properties}.
-   *
-   * @return a Map<String, Object>
-   */
-  Map<String, Object> getPropertiesMap()
+  public void load(Properties properties)
   {
-    Map<String, Object> map = new HashMap<>();
+    this.properties = properties;
+  }
+
+  /**
+   * Generates a map containing Properties from {@link Properties}.
+   *
+   * @return a Map<Object, Object>
+   */
+  public Map<Object, Object> getPropertiesMap()
+  {
+    Map<Object, Object> map = new HashMap<>();
     if (properties != null)
     {
       properties.stringPropertyNames().forEach(name -> map.put(name, properties.getProperty(name)));
@@ -64,26 +74,15 @@ public class JavaProperties
   }
 
   /**
-   * Returns properties as {@link java.util.Properties}.
+   * Returns properties as {@link Properties}.
    *
-   * @param properties as Map<String,Object>
-   * @return {@link java.util.Properties}
+   * @param properties as Map<Object,Object>
+   * @return {@link Properties}
    */
-  public java.util.Properties toJProperties(Map<String, Object> properties)
+  public Properties toJProperties(Map<Object, Object> properties)
   {
-    java.util.Properties props = new java.util.Properties();
+    Properties props = new Properties();
     props.putAll(properties);
     return props;
-  }
-
-  /**
-   * Returns a {@link PropertiesStructure} with all properties.
-   *
-   * @return PropertiesStructure
-   */
-  public PropertiesStructure toPropertiesStructure()
-  {
-    PropertiesFactory factory = new PropertiesFactory(configName, getPropertiesMap());
-    return factory.toJsonProperties();
   }
 }

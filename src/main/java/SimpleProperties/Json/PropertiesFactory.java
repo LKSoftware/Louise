@@ -26,9 +26,9 @@ public class PropertiesFactory
    * @param configName The name of the config object (not filename)
    * @param properties The properties as {@link HashMap}.
    */
-  public PropertiesFactory(String configName, Map<String, Object> properties)
+  public PropertiesFactory(String configName, Map<Object, Object> properties)
   {
-    if (properties != null && properties instanceof Map)
+    if (properties != null)
     {
       jsonObject = new PropertiesStructure();
       createJsonProperties(configName,
@@ -42,7 +42,7 @@ public class PropertiesFactory
 
   }
 
-  private void createJsonProperties(String configName, Map<String, Object> properties)
+  private void createJsonProperties(String configName, Map<Object, Object> properties)
   {
     jsonObject.setName(configName);
     jsonObject.setProperties(properties);
